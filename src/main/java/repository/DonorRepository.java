@@ -1,4 +1,4 @@
-package controller;
+package repository;
 
 public class DonorRepository {
 }
