@@ -1,5 +1,6 @@
 package repository;
 
+import config.DB;
 import java.sql.*;
 
 public class DonorRepository {
@@ -7,7 +8,7 @@ public class DonorRepository {
     public void createDonor(int donorId, String fullName, String email, String address, String phone) throws SQLException {
         String sql = "INSERT INTO donor(donor_id, full_name, email, address, phone) VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection con = DB.getConnection();
+        try (Connection con = DB.getInstance().getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, donorId);
             ps.setString(2, fullName);
@@ -21,7 +22,7 @@ public class DonorRepository {
     public void showAllDonors() throws SQLException {
         String sql = "SELECT donor_id, full_name, email, address FROM donor";
 
-        try (Connection con = DB.getConnection();
+        try (Connection con = DB.getInstance().getConnection();
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
