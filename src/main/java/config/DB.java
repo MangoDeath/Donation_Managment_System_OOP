@@ -8,7 +8,7 @@ public final class DB {
     private static final DB INSTANCE = new DB();
     private static final String URL = "jdbc:postgresql://localhost:5432/dbname";
     private static final String USER = "username";
-    private static final String PASS = "password";
+    private static final String PASS = "pass";
 
     private DB() {
     }
