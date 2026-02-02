@@ -1,6 +1,5 @@
 package repository;
 
-import config.DB;
 import java.sql.*;
 
 public class CampaignRepository {
