@@ -7,7 +7,6 @@ import payment.TransferPaymentProcessor;
 
 public class PaymentProcessorFactory {
 
-    // beginner-style: simple if/else (no switch expression)
     public PaymentProcessor createProcessor(String method) {
 
         if (method == null) {

@@ -27,7 +27,7 @@ public class Main {
 
         PaymentProcessorFactory paymentFactory = new PaymentProcessorFactory();
 
-        // simple login (no HashMap, no extra collections)
+
         String currentRole = login(sc);
         if (currentRole == null) {
             System.out.println("Bye!");
@@ -43,7 +43,7 @@ public class Main {
             if (choice == 0) {
                 break;
             } else if (choice == 1) {
-                // Show campaigns
+
                 if (!canViewCampaigns(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -55,7 +55,7 @@ public class Main {
                 }
 
             } else if (choice == 2) {
-                // Make donation
+
                 if (!canMakeDonation(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -63,7 +63,7 @@ public class Main {
                 makeDonation(sc, campaignRepo, donationRepo);
 
             } else if (choice == 3) {
-                // Register donor
+
                 if (!canRegisterDonor(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -71,7 +71,7 @@ public class Main {
                 registerDonor(sc, donorRepo);
 
             } else if (choice == 4) {
-                // Show donors
+
                 if (!canViewDonors(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -83,7 +83,7 @@ public class Main {
                 }
 
             } else if (choice == 5) {
-                // Record payment
+
                 if (!canRecordPayment(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -91,7 +91,7 @@ public class Main {
                 recordPayment(sc, donationRepo, paymentRepo, paymentFactory);
 
             } else if (choice == 6) {
-                // Show payments
+
                 if (!canViewPayments(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -103,7 +103,7 @@ public class Main {
                 }
 
             } else if (choice == 7) {
-                // Show categories
+
                 if (!canViewCampaigns(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -111,7 +111,7 @@ public class Main {
                 showCategories(categoryRepo);
 
             } else if (choice == 8) {
-                // Add category
+
                 if (!canManageCategories(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -119,7 +119,7 @@ public class Main {
                 addCategory(sc, categoryRepo);
 
             } else if (choice == 9) {
-                // Assign category to campaign
+
                 if (!canManageCategories(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -127,7 +127,7 @@ public class Main {
                 assignCategoryToCampaign(sc, campaignRepo);
 
             } else if (choice == 10) {
-                // Show full donation description
+
                 if (!canViewDetails(currentRole)) {
                     System.out.println("Access denied.");
                     continue;
@@ -155,7 +155,7 @@ public class Main {
             System.out.print("Password: ");
             String password = sc.nextLine().trim();
 
-            // beginner-style: simple if/else
+
             if (username.equals("admin") && password.equals("admin")) {
                 System.out.println("Welcome, admin (ADMIN)");
                 return "ADMIN";
