@@ -1,5 +1,6 @@
 package repository;
 
+import config.DB;
 import java.sql.*;
 
 public class PaymentRepository {
@@ -7,7 +8,7 @@ public class PaymentRepository {
     public void createPayment(int donationId, String method, String status) throws SQLException {
         String sql = "INSERT INTO payment(donation_id, method, status) VALUES (?, ?, ?)";
 
-        try (Connection con = DB.getConnection();
+        try (Connection con = DB.getInstance().getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, donationId);
             ps.setString(2, method);
@@ -19,7 +20,7 @@ public class PaymentRepository {
     public void showAllPayments() throws SQLException {
         String sql = "SELECT payment_id, donation_id, method, status, payment_date FROM payment";
 
-        try (Connection con = DB.getConnection();
+        try (Connection con = DB.getInstance().getConnection();
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
