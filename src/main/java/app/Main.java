@@ -30,7 +30,6 @@ public class Main {
 
         String currentRole = login(sc);
         if (currentRole == null) {
-            System.out.println("Bye!");
             sc.close();
             return;
         }
@@ -316,9 +315,10 @@ public class Main {
                 System.out.println("No categories available.");
                 return;
             }
-            for (Category c : categories) {
-                System.out.println(c.getCategoryId() + " | " + c.getName() + " | " + c.getDescription());
-            }
+            categories.forEach(c ->
+                    System.out.println(c.getCategoryId() + " | " + c.getName() + " | " + c.getDescription())
+            );
+
         } catch (SQLException e) {
             System.out.println("Error showing categories: " + e.getMessage());
         }
